@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
+import Calculadora from "../../assets/calculadora.jpg";
 
 function Forms() {
     const [productName, setProductName] = useState('');
@@ -30,7 +31,9 @@ function Forms() {
     };
 
     return (
+
         <View style={styles.container}>
+            <Image source={Calculadora} style={styles.image} />
             <Text style={styles.title}>Formulário de Preço</Text>
             <TextInput
                 style={styles.input}
@@ -83,5 +86,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 10
     },
+    image: {
+        width: "100",
+        height: "100",
+        marginBottom: 10
+    }
 
 });
