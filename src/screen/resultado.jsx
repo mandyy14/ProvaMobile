@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function TelaResultado() {
-
-
+export default function TelaResultado({ route }) {
     const { productName, originalPrice, increasePercentage, increaseValue, newPrice } = route.params;
 
     return (
@@ -15,26 +13,24 @@ export default function TelaResultado() {
             <Text style={styles.result}>Novo Valor: R$ {newPrice}</Text>
         </View>
     );
-
-
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
         padding: 20,
-        backgroundColor: '#f4f4f4',
+        backgroundColor: "#f4f4f4",
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         marginBottom: 20,
     },
     result: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         marginTop: 5,
-    }
-})
+    },
+});
