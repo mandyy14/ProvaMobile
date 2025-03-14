@@ -20,7 +20,6 @@ function Forms() {
         const increasedValue = price * (percentage / 100);
         const finalPrice = price + increasedValue;
 
-        // Navegar para a tela de resultado e passar os dados
         navigation.navigate("Resultado", {
             productName,
             originalPrice,
@@ -53,7 +52,7 @@ function Forms() {
                 value={increasePercentage}
                 onChangeText={setIncreasePercentage}
             />
-            <Button title="Calcular" onPress={calculatePrice} />
+            <Button title="Calcular" onPress={calculatePrice} style={styles.button} />
         </View>
     );
 }
@@ -81,5 +80,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal: 10,
         backgroundColor: "#fff",
+        borderRadius: 10
     },
+    button: {
+        borderRadius: 20
+    }
 });
