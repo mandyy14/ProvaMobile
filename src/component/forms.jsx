@@ -52,7 +52,7 @@ function Forms() {
                 value={increasePercentage}
                 onChangeText={setIncreasePercentage}
             />
-            <Button title="Calcular" onPress={calculatePrice} style={styles.button} />
+            <Button title="Calcular" style={styles.btn} onPress={calculatePrice} />
         </View>
     );
 }
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 20,
+        color: "purple"
     },
     input: {
         width: "100%",
