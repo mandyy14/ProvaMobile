@@ -82,7 +82,5 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 10
     },
-    button: {
-        borderRadius: 20
-    }
+
 });
