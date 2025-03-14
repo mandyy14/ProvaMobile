@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Forms from "./src/component/forms";
 
 const Stack = createStackNavigator();
 
@@ -8,7 +9,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="TelaInicial"
+          name="Forms"
           component={Forms}
           options={{ headerShown: false }}
         />
