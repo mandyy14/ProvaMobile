@@ -1,4 +1,5 @@
-import { Button, Text, View } from "react-native";
+import { useState } from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 function Forms() {
 
@@ -31,7 +32,7 @@ function Forms() {
             />
             <TextInput
                 style={styles.input}
-                placeholder="Valor Original"
+                placeholder="Valor original"
                 keyboardType="numeric"
                 required
                 value={originalPrice}
