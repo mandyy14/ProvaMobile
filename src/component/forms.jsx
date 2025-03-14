@@ -1,40 +1,48 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 function Forms() {
-
     const [productName, setProductName] = useState('');
     const [originalPrice, setOriginalPrice] = useState('');
     const [increasePercentage, setIncreasePercentage] = useState('');
-    const [newPrice, setNewPrice] = useState(null);
+
+    const navigation = useNavigation();
 
     const calculatePrice = () => {
         if (!productName || !originalPrice || !increasePercentage) {
-            alert('Preencha todos os campos!');
+            alert("Preencha todos os campos!");
             return;
         }
 
         const price = parseFloat(originalPrice);
         const percentage = parseFloat(increasePercentage);
         const increasedValue = price * (percentage / 100);
-        setNewPrice(price + increasedValue);
+        const finalPrice = price + increasedValue;
+
+        // Navegar para a tela de resultado e passar os dados
+        navigation.navigate("Resultado", {
+            productName,
+            originalPrice,
+            increasePercentage,
+            increaseValue: increasedValue.toFixed(2),
+            newPrice: finalPrice.toFixed(2),
+        });
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Formulario de Preço</Text>
+            <Text style={styles.title}>Formulário de Preço</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Nome do Produto"
                 value={productName}
-                required
                 onChangeText={setProductName}
             />
             <TextInput
                 style={styles.input}
                 placeholder="Valor original"
                 keyboardType="numeric"
-                required
                 value={originalPrice}
                 onChangeText={setOriginalPrice}
             />
@@ -42,21 +50,15 @@ function Forms() {
                 style={styles.input}
                 placeholder="Porcentagem de Aumento"
                 keyboardType="numeric"
-                required
                 value={increasePercentage}
                 onChangeText={setIncreasePercentage}
             />
             <Button title="Calcular" onPress={calculatePrice} />
-            {newPrice !== null && (
-                <Text style={styles.result}>Novo Valor: R$ {newPrice.toFixed(2)}</Text>
-            )}
         </View>
     );
-
 }
-export default Forms
 
-
+export default Forms;
 
 const styles = StyleSheet.create({
     container: {
@@ -64,24 +66,20 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+        padding: 20,
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         marginBottom: 20,
     },
     input: {
-        width: '100%',
+        width: "100%",
         height: 40,
-        borderColor: 'gray',
+        borderColor: "gray",
         borderWidth: 1,
         marginBottom: 10,
         paddingHorizontal: 10,
-        backgroundColor: '#fff',
-    },
-    result: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginTop: 20,
+        backgroundColor: "#fff",
     },
 });
