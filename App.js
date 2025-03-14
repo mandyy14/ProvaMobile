@@ -10,8 +10,8 @@ export default function App() {
 
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Forms">
-        <Stack.Screen name="Forms" component={Forms} options={{ title: 'Forms' }} />
-        <Stack.Screen name="Resultado" component={TelaResultado} options={{ title: 'Resultado' }} />
+        <Stack.Screen name="Forms" component={Forms} options={{ headerShown: false }} />
+        <Stack.Screen name="Resultado" component={TelaResultado} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
